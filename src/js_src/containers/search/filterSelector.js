@@ -76,9 +76,10 @@ FilterSelectorComponent.propTypes = {
 };
 
 function mapStateToProps(state) {
+  let searchState = state.search.toJS();
   return {
-    activeCategory:  state.search.activeCategory,
-    aggregations: state.search.aggregations,
+    activeCategory:  searchState.activeCategory,
+    aggregations: searchState.aggregations,
     location: state.routing.locationBeforeTransitions
   };
 }
