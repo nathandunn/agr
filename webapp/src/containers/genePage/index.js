@@ -11,7 +11,9 @@ import { OrthologyTable, mockOrthologData } from '../../components/orthology';
 import DiseaseTable from '../../components/disease';
 import Subsection from '../../components/subsection';
 import HeadMetaTags from '../../components/headMetaTags';
-import TranscriptInlineViewer from './transcriptInlineViewer';
+// import TranscriptInlineViewer from './transcriptInlineViewer';
+// import TranscriptPlotlyViewer from './transcriptPlotlyViewer';
+import LocusDiagram from './transcriptYeastViewer';
 
 class GenePage extends Component {
   componentDidMount() {
@@ -67,13 +69,7 @@ class GenePage extends Component {
         <Subsection title='Transcript Viewer'>
           {genomeLocation && genomeLocation.start && genomeLocation.end
             ?
-            <TranscriptInlineViewer
-              chromosome={genomeLocation.chromosome}
-              fmax={genomeLocation.end}
-              fmin={genomeLocation.start}
-              geneSymbol={this.props.data.symbol}
-              species={this.props.data.species}
-            />
+            <LocusDiagram />
             :
             <div className="alert alert-warning">Genome Location Data Unavailable</div>
           }
