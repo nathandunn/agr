@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 
 
 class TranscriptViewer extends Component {
@@ -46,9 +46,14 @@ class TranscriptViewer extends Component {
     let styles = {
       makeSpace: {
         display: 'block',
-        marginTop: '20px',
+        // marginTop: '20px',
         marginBottom: '20px',
         marginLeft: '15px'
+      },
+      makeALittleSpace: {
+        marginTop: '0px',
+        // marginBottom: '10px',
+        marginLeft: '5px'
       },
       buttonSpace: {
         marginLeft: '15px'
@@ -57,12 +62,24 @@ class TranscriptViewer extends Component {
 
     return (
       <div id='genomeViewer'>
+        {/*<div className='row' style={styles.makeALittleSpace}>*/}
+          {/*<a*/}
+            {/*href="http://icebox.lbl.gov/Apollo-staging/track/Honeybee/Official%20Gene%20Set%20v3.2/Group1.10/GB40783-RA.svg?featureName=GB42163-RA">*/}
+            <object type="image/svg+xml"
+                    data="http://icebox.lbl.gov/Apollo-staging/track/Honeybee/Official%20Gene%20Set%20v3.2/Group1.10/GB40783-RA.svg?featureName=GB42163-RA"
+            height="80px;" width="550px;">
+              Your browser does not support SVG
+            </object>
+          {/*</a>*/}
+        {/*</div>*/}
         <div className='row' style={styles.makeSpace}>
-          <a className='btn btn-secondary btn-sm col-md-1' href={externalJbrowseUrl.replace('overview.html', 'index.html')} >Browse <i className='fa fa-search' /></a>
+          <a className='btn btn-secondary btn-sm col-md-1'
+             href={externalJbrowseUrl.replace('overview.html', 'index.html')}>Browse <i className='fa fa-search'/></a>
           {/*<a className='btn btn-secondary btn-sm' href={externalJbrowseUrl} style={styles.buttonSpace}>Snapshot <i className='fa fa-camera' /> </a>*/}
         </div>
         <div className='row' style={styles.makeSpace}>
-          <a href={externalJbrowseUrl.replace('overview.html', 'index.html')} rel='noopener noreferrer' target='_blank' title='Browse Genome'>
+          <a href={externalJbrowseUrl.replace('overview.html', 'index.html')} rel='noopener noreferrer' target='_blank'
+             title='Browse Genome'>
             <img
               onError={this.handleImageErrored.bind(this)}
               onLoad={this.handleImageLoaded.bind(this)}
@@ -71,7 +88,7 @@ class TranscriptViewer extends Component {
           </a>
         </div>
         {this.state.imageStatus === 'loading'
-          ? <div>Loading ... <img src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif' /></div>
+          ? <div>Loading ... <img src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif'/></div>
           : ''
         }
       </div>
